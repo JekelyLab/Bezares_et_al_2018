@@ -194,19 +194,19 @@ legend("topright",fill=c("black","dark blue","forest green","magenta","white"),i
 ##FigS1E Plotting speed distribution of Elevation responses#####
 
 #Head-Pygid-High
-boxplot(TableResults[Head100LowElev,"DurationRest2Elevation"],TableResults[Head100HighElev,"DurationRest2Elevation"],TableResults[Pygid,"DurationRest2Elevation"],names=c("HeadWide","Pygidium"),las=1,col = "grey",ylab="Duration rest to max. Elevation (ms)",ylim=c(0,900),boxlwd=1,yaxt='n',notch=F,varwidth = T)
-axis(side=2, at=seq(0, 900, by=40),las=1)
+boxplot(TableResults[Head100HighElev,"DurationRest2Elevation"],TableResults[Pygid,"DurationRest2Elevation"],names=c("HeadWide","Pygidium"),las=1,col = "grey",ylab="Duration rest to max. Elevation (ms)",ylim=c(0,300),boxlwd=1,yaxt='n',notch=F,varwidth = T)
+axis(side=2, at=seq(0, 250, by=50),las=1)
 
 
 ###Fig.S1F Comparison Proto-Bodytroch Elev-Proto closure diff####
 
-ClosabrH<-data.frame(TableResults[Head100,"LatencyClosure"],TableResults[Head100,"LCloBody"],TableResults[Head100,"TimeperFrame"])
+ClosabrH<-data.frame(TableResults[Head100HighElev,"Elev2Proto"],TableResults[Head100HighElev,"Elev2Body"],TableResults[Head100HighElev,"TimeperFrame"])
 names(ClosabrH)<-c("Proto","Body","Time")
 ClosabrH$Time<-round(ClosabrH$Time,digits = 0)
 ClosabrH$Time<-as.factor(ClosabrH$Time)
 ClosemeltH<-melt(ClosabrH,"Time")
 
-CloseplotH<-ggplot(ClosemeltH,aes(x=variable,y=value,col=Time))+geom_boxplot(notch=T,varwidth=T)+geom_jitter(size=3,alpha=0.3,width = 0.2,height=0)+labs(x="",y="Wide to Closure delay (frames)")+scale_y_continuous(breaks = pretty(ClosemeltH$value,n=10))+guides(col=guide_legend(title="time/frame"))+scale_color_manual(values = c("black", "blue"))
+CloseplotH<-ggplot(ClosemeltH,aes(x=variable,y=value,col=Time))+geom_boxplot(notch=T,varwidth=T)+labs(x="",y="Wide to Closure delay (frames)")+scale_y_continuous(breaks = pretty(ClosemeltH$value,n=10))+guides(col=guide_legend(title="time/frame"))+scale_color_manual(values = c("green", "blue"))+geom_hline(yintercept = 1,colour="red",linetype="dashed")+geom_hline(yintercept = -1,colour="red",linetype="dashed")
 CloseplotH
 
 ###FigS1G Delay LR and segment Elevation####
