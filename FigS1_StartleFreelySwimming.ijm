@@ -1,5 +1,5 @@
 //Description
-//Author: Luis Bezares Calderon and Gaspar Jekely, written in June--July 2017 July 2017.
+//Author: Luis Bezares Calderon and Gaspar Jekely, written in June--July 2017.
 //Purpose: Extract speed and other parameters from freely swimming larvae (recorded from the top) startled with a motor attached to the container dish.
 //Input data: Time-lapse recordings of freely swimming larvae startled at a defined point in time. The larva density should not be too high to be able to isolate instances of the startle response in individual larvae. The number of pixels per larvae has to be enough to detect differences in area due to parapodia elevation. 
 //Publication:Bezares-Calderon et al,2018.
