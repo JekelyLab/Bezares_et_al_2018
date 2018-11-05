@@ -60,11 +60,11 @@ PKD21Table$RoundDist<-RoundDist
 ###Creating subgroups####
 
 PKD1Head<- which(PKD11Table$Closest.body.part.to.probe == "Head")
-PKD1Pygid<-which(PKD11Table$Closest.body.part.to.probe == "Pygid")
+PKD1Pygid<-which(PKD11Table$Closest.body.part.to.probe == "Tail")
 
 
 PKD2Head<- which(PKD21Table$Closest.body.part.to.probe == "Head")
-PKD2Pygid<-which(PKD21Table$Closest.body.part.to.probe == "Pygid")
+PKD2Pygid<-which(PKD21Table$Closest.body.part.to.probe == "Tail")
 
 ####Fig3K ggplot PKD1 and PKD2 head####
 
@@ -85,7 +85,7 @@ AbrdHeadPKD2$gene<-gene
 ######Merging PKD1 and PKD2 head#
 
 PKDtablemergedH<-merge(AbrdHeadPKD1,AbrdHeadPKD2,all = T)
-MerPlotH<-ggplot(data =PKDtablemergedH,aes(x=SpeedP,y=Relative2max_Elevation,col=Closure_Prototroch))+theme(legend.title=element_blank(),axis.text.x = element_text(angle = 90, hjust = 1),legend.position="none")+ scale_color_manual(values = c("magenta")) +   geom_point(stat="identity", size = 10,shape=20,alpha=3/4)+facet_grid(gene~.)+labs(x="Max.speed filament (um/ms)",y="Max.parapodial angle (a.u.)")+scale_x_continuous(breaks = pretty(abridgedtableHead$SpeedP, n=5))+scale_y_continuous(limits = c(0,1),breaks = c(0,0.5,1))
+MerPlotH<-ggplot(data =PKDtablemergedH,aes(x=SpeedP,y=Relative2max_Elevation,col=Closure_Prototroch))+theme(legend.title=element_blank(),axis.text.x = element_text(angle = 90, hjust = 1),legend.position="none",aspect.ratio = 0.4)+ scale_color_manual(values = c("magenta")) +   geom_point(stat="identity", size = 13,shape=20,alpha=3/4)+facet_grid(gene~.)+labs(x="Max.speed filament (um/ms)",y="Max.parapodial angle (a.u.)")+scale_x_continuous(limits=c(0,100),breaks = pretty(abridgedtableHead$SpeedP, n=5))+scale_y_continuous(limits = c(0,1),breaks = c(0,0.5,1))
 MerPlotH
 
 ####Fig.S3U ggplot PKD1 and PKD2 Pygid####
@@ -110,5 +110,5 @@ AbrdPygidPKD2$gene<-gene
 ######MergingPKD1 and PKD2 Pygid##
 
 PKDtablemergedT<-merge(AbrdPygidPKD1,AbrdPygidPKD2,all = T)
-MerPlotT<-ggplot(data =PKDtablemergedT,aes(x=SpeedP,y=Relative2max_Elevation,col=Closure_Prototroch))+theme(legend.title=element_blank(),axis.text.x = element_text(angle = 90, hjust = 1),legend.position="none",aspect.ratio = 0.4)+ scale_color_manual(values = c("magenta")) +   geom_point(stat="identity", size = 10,shape=20,alpha=3/4)+facet_grid(gene~.)+labs(x="Max.speed filament (um/ms)",y="Max.parapodial angle (a.u.)")+scale_x_continuous(breaks = pretty(abridgedtableHead$SpeedP, n=5))+scale_y_continuous(limits = c(0,1),breaks = c(0,0.5,1))
+MerPlotT<-ggplot(data =PKDtablemergedT,aes(x=SpeedP,y=Relative2max_Elevation,col=Closure_Prototroch))+theme(legend.title=element_blank(),axis.text.x = element_text(angle = 0, hjust = 1),legend.position="none",aspect.ratio = 0.4)+ scale_color_manual(values = c("magenta")) +   geom_point(stat="identity", size = 13,shape=20,alpha=3/4)+facet_grid(gene~.)+labs(x="Max.speed filament (um/ms)",y="Max.parapodial angle (a.u.)")+scale_x_continuous(limits=c(0,100),breaks = pretty(abridgedtableHead$SpeedP, n=2))+scale_y_continuous(limits = c(0,1),breaks = c(0,0.5,1))
 MerPlotT
